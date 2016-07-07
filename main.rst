@@ -1,13 +1,13 @@
 .. -*- coding: utf-8 -*-
 
-====
-TODO
-====
+====================
+JDHP Skeletons Howto
+====================
 
 :Author: Jérémie Decock
 :Contact: jd.jdhp@gmail.com
 :Revision: 1
-:Date: TODO/TODO/2016
+:Date: 07/07/2016
 :Licence: |CC BY-SA 4.0|_
 
 .. ............................................................................
@@ -16,8 +16,8 @@ TODO
 
 .. meta::
     :author: Jérémie DECOCK
-    :description: TODO
-    :keywords: TODO, TODO, TODO
+    :description: skeletons howto
+    :keywords: jdhp, skeletons, howto
     :copyright: Copyright (c) 2016 Jérémie DECOCK
 
 .. ............................................................................
@@ -46,13 +46,10 @@ TODO
 
     PageBreak
 
-TITLE 1
-=======
+.. Include options:
+.. http://docutils.sourceforge.net/docs/ref/rst/directives.html#include
 
-TITLE 2
--------
-
-TODO
+.. include:: content/main.rst
 
 .. ............................................................................
 
@@ -73,13 +70,13 @@ License
 
 |CC BY-SA 4.0 image|_
 
-*TODO*
+*JDHP Skeletons Howto*
 de `Jérémie Decock`_
 est mis à disposition selon les termes de la licence |CC BY-SA 4.0|_. 
 
 .. ............................................................................
 
-.. _TODO: http://www.jdhp.org/tutorials_TODO.html#TODO
+.. _JDHP Skeletons Howto: http://www.jdhp.org/tutorials_fr.html#jdhp-skeletons-howto
 .. _Jérémie Decock: http://www.jdhp.org/
 
 .. |CC BY-SA 4.0| replace:: Creative Commons 4.0 (CC BY-SA 4.0)
