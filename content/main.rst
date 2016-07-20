@@ -176,12 +176,12 @@ Appliquer les mises à jour du squelette à un document / resynchroniser les bra
 En supposant que le squelette est dans ``skeleton/master`` (adapter s'il est
 dans ``skeleton/english-version`` ou ``skeleton/english-version``).
 
-1. Fetch::
+1. Synchroniser le dépôt local avec le dépôt "squelette" distant (fetch)::
 
     git fetch skeleton
 
-2. Préparer le terrain en effectuant les changements "lourds" hors du merge
-   (fichiers/répertoires déplacés, fichiers/répertoires renommés, etc.)::
+2. Préparer le terrain en effectuant les changements "lourds" hors du futur
+   merge (fichiers/répertoires déplacés, fichiers/répertoires renommés, etc.)::
 
    git difftool -d skeleton/master
 
