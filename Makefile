@@ -6,7 +6,7 @@ all: $(FILE_BASE_NAME).html $(FILE_BASE_NAME).pdf
 
 .PHONY : all html pdf odt pdf-latex slides jdhp publish clean init
 
-SRCFILES=main.rst Makefile content/*.rst
+SRCFILES=Makefile main.rst content/*.rst
 
 ## ARTICLE ####################################################################
 
