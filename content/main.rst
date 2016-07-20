@@ -170,17 +170,46 @@ Push branches on origin::
     git checkout french-version
     git push -u origin french-version
 
-Appliquer les mises à jour du squelette à un document
-=====================================================
+Appliquer les mises à jour du squelette à un document / resynchroniser les branches d'un squelette
+==================================================================================================
 
-::
+En supposant que le squelette est dans ``skeleton/master`` (adapter s'il est
+dans ``skeleton/english-version`` ou ``skeleton/english-version``).
+
+1. Fetch::
 
     git fetch skeleton
 
-Then (**TODO**):
+2. Préparer le terrain en effectuant les changements "lourds" hors du merge
+   (fichiers/répertoires déplacés, fichiers/répertoires renommés, etc.)::
 
--  http://stackoverflow.com/questions/449541/how-do-you-merge-selective-files-with-git-merge
--  http://stackoverflow.com/questions/10784523/how-do-i-merge-changes-to-a-single-file-rather-than-merging-commits/11593308#11593308
+   git difftool -d skeleton/master
+
+3. Commit::
+
+   git add . 
+   git commit -m "Prepare merge with skeleton/master."
+
+4. Merge et résoudre les conflits fichier par fichier::
+
+   git merge skeleton/master
+   git mergetool FILENAME1
+   git mergetool FILENAME2
+   ...
+
+5. Si un fichier a migré dans l'index par erreur (i.e. dans un mauvais état)
+   annuler et recommencer la résolution des conflits pour ce fichier::
+
+   git checkout -m FILENAME
+   git mergetool FILENAME
+
+6. Vérifier et commiter::
+
+   git commit
+
+
+.. http://stackoverflow.com/questions/449541/how-do-you-merge-selective-files-with-git-merge
+.. http://stackoverflow.com/questions/10784523/how-do-i-merge-changes-to-a-single-file-rather-than-merging-commits/11593308#11593308
 
 Brouillon
 ---------
