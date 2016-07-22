@@ -170,6 +170,11 @@ Push branches on origin::
     git checkout french-version
     git push -u origin french-version
 
+**TODO**: supprimer la branche master
+(http://matthew-brett.github.io/pydagogue/gh_delete_master.html) puis supprimer
+et reclonner le référentiel local pour éviter les problèmres de références
+erronées.
+
 Appliquer les mises à jour du squelette à un document / resynchroniser les branches d'un squelette
 ==================================================================================================
 
@@ -185,27 +190,30 @@ dans ``skeleton/english-version`` ou ``skeleton/english-version``).
 2. Préparer le terrain en effectuant les changements "lourds" hors du futur
    merge (fichiers/répertoires déplacés, fichiers/répertoires renommés, etc.)
 
-::
+Pour avoir une vue d'ensemble des différences::
 
    git difftool -d skeleton/master
 
-3. Commit
+Pour mettre à jour un fichier donné avec un *difftool* externe::
 
-::
+   git difftool skeleton/master FILENAME
+
+Une fois les changements effectués::
 
    git add . 
-   git commit -m "Prepare merge with skeleton/master."
+   git commit -m "Prepare a merge with skeleton/master."
 
-4. Merge et résoudre les conflits fichier par fichier
+3. Merge et résoudre les conflits fichier par fichier
 
 ::
 
    git merge skeleton/master
+   git status
    git mergetool FILENAME1
    git mergetool FILENAME2
    ...
 
-5. Si un fichier a migré dans l'index par erreur (i.e. dans un mauvais état)
+4. Si un fichier a migré dans l'index par erreur (i.e. dans un mauvais état)
    annuler et recommencer la résolution des conflits pour ce fichier
 
 ::
@@ -213,12 +221,13 @@ dans ``skeleton/english-version`` ou ``skeleton/english-version``).
    git checkout -m FILENAME
    git mergetool FILENAME
 
-6. Vérifier et commiter
+5. Vérifier et commiter
 
 ::
 
    git commit
 
+Puis supprimer les fichiers ``.orig``.
 
 .. http://stackoverflow.com/questions/449541/how-do-you-merge-selective-files-with-git-merge
 .. http://stackoverflow.com/questions/10784523/how-do-i-merge-changes-to-a-single-file-rather-than-merging-commits/11593308#11593308
