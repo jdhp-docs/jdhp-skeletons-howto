@@ -176,21 +176,29 @@ Appliquer les mises à jour du squelette à un document / resynchroniser les bra
 En supposant que le squelette est dans ``skeleton/master`` (adapter s'il est
 dans ``skeleton/english-version`` ou ``skeleton/english-version``).
 
-1. Synchroniser le dépôt local avec le dépôt "squelette" distant (fetch)::
+1. Synchroniser le dépôt local avec le dépôt "squelette" distant (fetch)
+
+::
 
     git fetch skeleton
 
 2. Préparer le terrain en effectuant les changements "lourds" hors du futur
-   merge (fichiers/répertoires déplacés, fichiers/répertoires renommés, etc.)::
+   merge (fichiers/répertoires déplacés, fichiers/répertoires renommés, etc.)
+
+::
 
    git difftool -d skeleton/master
 
-3. Commit::
+3. Commit
+
+::
 
    git add . 
    git commit -m "Prepare merge with skeleton/master."
 
-4. Merge et résoudre les conflits fichier par fichier::
+4. Merge et résoudre les conflits fichier par fichier
+
+::
 
    git merge skeleton/master
    git mergetool FILENAME1
@@ -198,12 +206,16 @@ dans ``skeleton/english-version`` ou ``skeleton/english-version``).
    ...
 
 5. Si un fichier a migré dans l'index par erreur (i.e. dans un mauvais état)
-   annuler et recommencer la résolution des conflits pour ce fichier::
+   annuler et recommencer la résolution des conflits pour ce fichier
+
+::
 
    git checkout -m FILENAME
    git mergetool FILENAME
 
-6. Vérifier et commiter::
+6. Vérifier et commiter
+
+::
 
    git commit
 
