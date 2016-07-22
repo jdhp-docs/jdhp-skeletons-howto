@@ -1,24 +1,19 @@
 .. -*- coding: utf-8 -*-
 
+.. Include options:
+.. http://docutils.sourceforge.net/docs/ref/rst/directives.html#include
+
+.. include:: meta.rst
+
 ====================
 JDHP Skeletons Howto
 ====================
 
-:Author: Jérémie Decock
-:Contact: jd.jdhp@gmail.com
-:Revision: 1
-:Date: 07/07/2016
+:Author: |AUTHORS|
+:Contact: |CONTACT|
+:Revision: |REVISION|
+:Date: |DATE|
 :Licence: |CC BY-SA 4.0|_
-
-.. ............................................................................
-
-.. http://docutils.sourceforge.net/docs/ref/rst/directives.html#meta
-
-.. meta::
-    :author: Jérémie DECOCK
-    :description: skeletons howto
-    :keywords: jdhp, skeletons, howto
-    :copyright: Copyright (c) 2016 Jérémie DECOCK
 
 .. ............................................................................
 
@@ -70,13 +65,11 @@ License
 
 |CC BY-SA 4.0 image|_
 
-*JDHP Skeletons Howto*
-de `Jérémie Decock`_
-est mis à disposition selon les termes de la licence |CC BY-SA 4.0|_. 
+Ce document écrit par `Jérémie Decock`_ est mis à
+disposition selon les termes de la licence |CC BY-SA 4.0|_. 
 
 .. ............................................................................
 
-.. _JDHP Skeletons Howto: http://www.jdhp.org/tutorials_fr.html#jdhp-skeletons-howto
 .. _Jérémie Decock: http://www.jdhp.org/
 
 .. |CC BY-SA 4.0| replace:: Creative Commons 4.0 (CC BY-SA 4.0)
