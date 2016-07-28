@@ -213,6 +213,18 @@ Une fois les changements effectués::
    git mergetool FILENAME2
    ...
 
+Il se peut que git refuse de fusionner deux branches qui n'ont aucun commit en
+commun: "refus de fusionner des historiques sans relation" ("refusing to merge
+unrelated histories" en anglais). Dans ce cas, il faut ajouter l'option
+``--allow-unrelated-histories`` à ``git merge`` ::
+
+   git merge --allow-unrelated-histories skeleton/master
+   ...
+
+Cf.
+http://stackoverflow.com/questions/27641380/git-merge-commits-into-an-orphan-branch
+pour plus d'informations.
+
 4. Si un fichier a migré dans l'index par erreur (i.e. dans un mauvais état)
    annuler et recommencer la résolution des conflits pour ce fichier
 
