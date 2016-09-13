@@ -94,7 +94,8 @@ Nouvelle méthode
 1. Créer le référentiel sur github (le laisser vide pour le moment)
 
 2. Cloner le squelette avec la branche par défaut et renommer le remote
-   (utiliser de préférence HTTPS pour que le squelette soit en lecture seule)::
+   (utiliser de préférence HTTPS pour que le squelette soit en lecture seule et
+   éviter de pousser les mises à jours vers le squelette par erreur)::
 
     git clone https://github.com/jdhp-skeletons/beamer-skeleton.git sapcta-weekly-meeting-2016-09-01
     cd sapcta-weekly-meeting-2016-09-01
