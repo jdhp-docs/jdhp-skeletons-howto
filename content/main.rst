@@ -88,9 +88,49 @@ avec des "git merge" qur les fichiers communs
 Créer un document basé sur un squelette
 =======================================
 
-1. créer le référentiel sur github (le laisser vide pour le moment)
+Nouvelle méthode
+~~~~~~~~~~~~~~~~
 
-2. cloner le squelette avec une des deux branches et renommer le remote::
+1. Créer le référentiel sur github (le laisser vide pour le moment)
+
+2. Cloner le squelette avec la branche par défaut et renommer le remote
+   (utiliser de préférence HTTPS pour que le squelette soit en lecture seule)::
+
+    git clone https://github.com/jdhp-skeletons/beamer-skeleton.git sapcta-weekly-meeting-2016-09-01
+    cd sapcta-weekly-meeting-2016-09-01
+    git remote rename origin skeleton
+
+3. Déclarer le remote github::
+
+    git remote add origin git@github.com:jdhp-sap-docs/sapcta-weekly-meeting-2016-09-01.git
+
+4. Pousser la branche par défaut (``english-version``, ``french-version`` ou
+   ``master`` suivant le squelette) sur github::
+
+    git push -u origin english-version
+
+ou
+
+::
+
+    git push -u origin french-version
+
+ou
+
+::
+
+    git push -u origin master
+
+Vérifier avec::
+
+    git branch -vv -a
+
+Ancienne méthode
+~~~~~~~~~~~~~~~~
+
+1. Créer le référentiel sur github (le laisser vide pour le moment)
+
+2. Cloner le squelette avec une des deux branches et renommer le remote::
 
     git clone -b french-version git@github.com:jdhp-skeletons/rst-skeleton.git git-volab-workflow
     git remote rename origin skeleton
@@ -101,13 +141,13 @@ ou (TODO: essayer)
 
     git clone -b french-version -o skeleton git@github.com:jdhp-skeletons/rst-skeleton.git git-volab-workflow
 
-3. renommer la branche french-version -> master
+3. Renommer la branche french-version -> master
 
 ::
 
     git branch -m french-version master
 
-4. déclarer le remote github et pusher::
+4. Déclarer le remote github et pusher::
 
     git remote add origin git@github.com:jdhp-docs/git-volab-workflow.git
     git push -u origin master
