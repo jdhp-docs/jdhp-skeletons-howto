@@ -89,7 +89,7 @@ Créer un document basé sur un squelette
 =======================================
 
 Nouvelle méthode
-~~~~~~~~~~~~~~~~
+----------------
 
 1. Créer le référentiel sur github (le laisser vide pour le moment)
 
@@ -126,7 +126,7 @@ Vérifier avec::
     git branch -vv -a
 
 Ancienne méthode
-~~~~~~~~~~~~~~~~
+----------------
 
 1. Créer le référentiel sur github (le laisser vide pour le moment)
 
