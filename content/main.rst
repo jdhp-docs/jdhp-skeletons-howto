@@ -238,7 +238,7 @@ Fusionner et résoudre les conflits fichier par fichier
 
 ::
 
-   git merge skeleton/master
+   git merge skeleton/BRANCH_NAME
    git status
    git mergetool FILENAME1
    git mergetool FILENAME2
@@ -249,7 +249,7 @@ commun: "refus de fusionner des historiques sans relation" ("refusing to merge
 unrelated histories" en anglais). Dans ce cas, il faut ajouter l'option
 ``--allow-unrelated-histories`` à ``git merge`` ::
 
-   git merge --allow-unrelated-histories skeleton/master
+   git merge --allow-unrelated-histories skeleton/BRANCH_NAME
    ...
 
 Cf.
