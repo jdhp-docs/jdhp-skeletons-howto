@@ -1,5 +1,5 @@
-Réflexion sur les référentiels Git "skeletons"
-==============================================
+Réflexion préalable sur les référentiels Git "skeletons"
+========================================================
 
 Méthodes en concurrence:
 
@@ -85,11 +85,12 @@ avec des "git merge" qur les fichiers communs
       cherrypick, ... (ce qui peux aussi être vu comme un avantage car
       ça permet de gagner en expérience...)
 
-Créer un document basé sur un squelette
-=======================================
 
-Nouvelle méthode
-----------------
+Skeleton HOWTO
+==============
+
+Créer un document basé sur un squelette
+---------------------------------------
 
 1. Créer le référentiel sur github (le laisser vide pour le moment)
 
@@ -126,8 +127,170 @@ Vérifier avec::
 
     git branch -vv -a
 
-Ancienne méthode
-----------------
+
+Créer un document bilingue basé sur un squelette
+------------------------------------------------
+
+TODO: tester
+
+1. créer le référentiel sur github (le laisser vide pour le moment) 2.
+cloner le squelette::
+
+    git clone -o skeleton git@github.com:jdhp-skeletons/rst-skeleton.git git-volab-workflow
+    cd git-volab-workflow
+
+3. cloner les deux branches::
+
+    git checkout -b english-version skeleton/english-version
+    git checkout -b french-version skeleton/french-version
+
+4. déclarer le remote github et pusher::
+
+    git remote add origin git@github.com:jdhp-docs/git-volab-workflow.git
+    git checkout master
+    git push -u origin master
+    git checkout english-version
+    git push -u origin english-version
+    git checkout french-version
+    git push -u origin french-version
+
+Vérifier avec::
+
+    git branch -vv -a
+
+Attacher un squelette à un référentiel existant
+-----------------------------------------------
+
+Add remote skeleton::
+
+    git remote add skeleton git@github.com:jdhp-skeletons/rst-skeleton.git
+    git fetch skeleton
+
+Add remote origin::
+
+    git remote add origin git@github.com:jdhp-docs/git-memento.git
+
+Push branches on origin::
+
+    git checkout master
+    git push -u origin master
+    
+    git checkout english-version
+    git push -u origin english-version
+    
+    git checkout french-version
+    git push -u origin french-version
+
+**TODO**: supprimer la branche master
+(http://matthew-brett.github.io/pydagogue/gh_delete_master.html) puis supprimer
+et reclonner le référentiel local pour éviter les problèmres de références
+erronées.
+
+Appliquer les mises à jour du squelette à un document / resynchroniser les branches d'un squelette
+--------------------------------------------------------------------------------------------------
+
+En supposant que le squelette est dans ``skeleton/english-version`` (adapter s'il est
+dans ``skeleton/french-version`` ou ``skeleton/master``).
+
+Synchroniser le dépôt local avec le dépôt "squelette" distant
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+    git fetch skeleton
+
+Préparer la fusion
+~~~~~~~~~~~~~~~~~~
+
+Préparer le terrain en effectuant les changements "lourds" hors du futur
+merge (fichiers/répertoires déplacés, fichiers/répertoires renommés, etc.)
+
+Pour avoir une vue d'ensemble des différences::
+
+   git difftool -d skeleton/BRANCH_NAME
+
+ou simplement::
+
+   git diff skeleton/BRANCH_NAME
+
+Par exemple::
+
+   git difftool -d skeleton/english-version
+
+ou::
+
+   git diff skeleton/english-version
+
+
+Pour mettre à jour un fichier donné avec un *difftool* externe
+
+::
+
+   git difftool skeleton/master FILENAME
+
+Une fois les changements effectués::
+
+   git add . 
+   git commit -m "Prepare a merge with skeleton/master."
+
+Fusionner et résoudre les conflits fichier par fichier
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+::
+
+   git merge skeleton/master
+   git status
+   git mergetool FILENAME1
+   git mergetool FILENAME2
+   ...
+
+Il se peut que git refuse de fusionner deux branches qui n'ont aucun commit en
+commun: "refus de fusionner des historiques sans relation" ("refusing to merge
+unrelated histories" en anglais). Dans ce cas, il faut ajouter l'option
+``--allow-unrelated-histories`` à ``git merge`` ::
+
+   git merge --allow-unrelated-histories skeleton/master
+   ...
+
+Cf.
+http://stackoverflow.com/questions/27641380/git-merge-commits-into-an-orphan-branch
+pour plus d'informations.
+
+Corriger d'éventuelles erreurs dans la résolution des conflits
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~-
+
+Si un fichier a migré dans l'index par erreur (i.e. dans un mauvais état)
+annuler et recommencer la résolution des conflits pour ce fichier
+
+::
+
+   git checkout -m FILENAME
+   git mergetool FILENAME
+
+Vérifier et commiter
+~~~~~~~~~~~~~~~~~~~~
+
+::
+
+   git commit
+
+Puis supprimer les fichiers ``.orig``.
+
+.. http://stackoverflow.com/questions/449541/how-do-you-merge-selective-files-with-git-merge
+.. http://stackoverflow.com/questions/10784523/how-do-i-merge-changes-to-a-single-file-rather-than-merging-commits/11593308#11593308
+
+
+
+
+
+
+
+
+Brouillon
+=========
+
+Créer un document basé sur un squelette (ancienne méthode)
+----------------------------------------------------------
 
 1. Créer le référentiel sur github (le laisser vide pour le moment)
 
@@ -159,134 +322,9 @@ Vérifier avec::
 
 http://stackoverflow.com/questions/4950725/how-do-i-get-git-to-show-me-which-branches-are-tracking-what/16879922#16879922
 
-Créer un document bilingue basé sur un squelette
-================================================
 
-TODO: tester
-
-1. créer le référentiel sur github (le laisser vide pour le moment) 2.
-cloner le squelette::
-
-    git clone -o skeleton git@github.com:jdhp-skeletons/rst-skeleton.git git-volab-workflow
-
-3. cloner les deux branches::
-
-    git checkout -b english-version skeleton/english-version
-    git checkout -b french-version skeleton/french-version
-
-4. déclarer le remote github et pusher::
-
-    git remote add origin git@github.com:jdhp-docs/git-volab-workflow.git
-    git checkout master
-    git push -u origin master
-    git checkout english-version
-    git push -u origin english-version
-    git checkout french-version
-    git push -u origin french-version
-
-Vérifier avec::
-
-    git branch -vv -a
-
-Rattacher un squelette à un référentiel existant
-================================================
-
-Add remote skeleton::
-
-    git remote add skeleton git@github.com:jdhp-skeletons/rst-skeleton.git
-    git fetch skeleton
-
-Add remote origin::
-
-    git remote add origin git@github.com:jdhp-docs/git-memento.git
-
-Push branches on origin::
-
-    git checkout master
-    git push -u origin master
-    
-    git checkout english-version
-    git push -u origin english-version
-    
-    git checkout french-version
-    git push -u origin french-version
-
-**TODO**: supprimer la branche master
-(http://matthew-brett.github.io/pydagogue/gh_delete_master.html) puis supprimer
-et reclonner le référentiel local pour éviter les problèmres de références
-erronées.
-
-Appliquer les mises à jour du squelette à un document / resynchroniser les branches d'un squelette
-==================================================================================================
-
-En supposant que le squelette est dans ``skeleton/master`` (adapter s'il est
-dans ``skeleton/english-version`` ou ``skeleton/english-version``).
-
-1. Synchroniser le dépôt local avec le dépôt "squelette" distant (fetch)
-
-::
-
-    git fetch skeleton
-
-2. Préparer le terrain en effectuant les changements "lourds" hors du futur
-   merge (fichiers/répertoires déplacés, fichiers/répertoires renommés, etc.)
-
-Pour avoir une vue d'ensemble des différences::
-
-   git difftool -d skeleton/master
-
-Pour mettre à jour un fichier donné avec un *difftool* externe::
-
-   git difftool skeleton/master FILENAME
-
-Une fois les changements effectués::
-
-   git add . 
-   git commit -m "Prepare a merge with skeleton/master."
-
-3. Merge et résoudre les conflits fichier par fichier
-
-::
-
-   git merge skeleton/master
-   git status
-   git mergetool FILENAME1
-   git mergetool FILENAME2
-   ...
-
-Il se peut que git refuse de fusionner deux branches qui n'ont aucun commit en
-commun: "refus de fusionner des historiques sans relation" ("refusing to merge
-unrelated histories" en anglais). Dans ce cas, il faut ajouter l'option
-``--allow-unrelated-histories`` à ``git merge`` ::
-
-   git merge --allow-unrelated-histories skeleton/master
-   ...
-
-Cf.
-http://stackoverflow.com/questions/27641380/git-merge-commits-into-an-orphan-branch
-pour plus d'informations.
-
-4. Si un fichier a migré dans l'index par erreur (i.e. dans un mauvais état)
-   annuler et recommencer la résolution des conflits pour ce fichier
-
-::
-
-   git checkout -m FILENAME
-   git mergetool FILENAME
-
-5. Vérifier et commiter
-
-::
-
-   git commit
-
-Puis supprimer les fichiers ``.orig``.
-
-.. http://stackoverflow.com/questions/449541/how-do-you-merge-selective-files-with-git-merge
-.. http://stackoverflow.com/questions/10784523/how-do-i-merge-changes-to-a-single-file-rather-than-merging-commits/11593308#11593308
-
-Brouillon
----------
+Misc
+----
 
 Ce qui était prévu à l'origine:
 
