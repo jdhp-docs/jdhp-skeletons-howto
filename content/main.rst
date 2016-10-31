@@ -98,13 +98,13 @@ Créer un document basé sur un squelette
    (utiliser de préférence HTTPS pour que le squelette soit en lecture seule et
    éviter de pousser les mises à jours vers le squelette par erreur)::
 
-    git clone https://github.com/jdhp-skeletons/beamer-skeleton.git sapcta-weekly-meeting-2016-09-01
-    cd sapcta-weekly-meeting-2016-09-01
+    git clone https://github.com/jdhp-skeletons/SKELETON_NAME.git NEW_DOCUMENT_DIRECTORY
+    cd NEW_DOCUMENT_DIRECTORY
     git remote rename origin skeleton
 
 3. Déclarer le remote github::
 
-    git remote add origin git@github.com:jdhp-sap-docs/sapcta-weekly-meeting-2016-09-01.git
+    git remote add origin git@github.com:jdhp-docs/DOCUMENT_NAME.git
 
 4. Pousser la branche par défaut (``english-version``, ``french-version`` ou
    ``master`` suivant le squelette) sur github::
@@ -161,16 +161,16 @@ Vérifier avec::
 Attacher un squelette à un référentiel existant
 -----------------------------------------------
 
-Add remote skeleton::
+Declare the skeleton::
 
-    git remote add skeleton git@github.com:jdhp-skeletons/rst-skeleton.git
+    git remote add skeleton git@github.com:jdhp-skeletons/SKELETON_NAME.git
     git fetch skeleton
 
-Add remote origin::
+Declare the origin (if needed)::
 
-    git remote add origin git@github.com:jdhp-docs/git-memento.git
+    git remote add origin git@github.com:jdhp-docs/DOCUMENT_NAME.git
 
-Push branches on origin::
+Push branches on origin (if needed)::
 
     git checkout master
     git push -u origin master
