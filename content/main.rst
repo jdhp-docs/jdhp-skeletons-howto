@@ -99,8 +99,16 @@ Créer un document basé sur un squelette
    éviter de pousser les mises à jours vers le squelette par erreur)::
 
     git clone https://github.com/jdhp-skeletons/SKELETON_NAME.git NEW_DOCUMENT_DIRECTORY
+
+ou pour clonner une autre branche que la branche par défaut (par exemple `french-version`)::
+
+    git clone -b french-version https://github.com/jdhp-skeletons/SKELETON_NAME.git NEW_DOCUMENT_DIRECTORY
+
+puis::
+
     cd NEW_DOCUMENT_DIRECTORY
     git remote rename origin skeleton
+
 
 3. Déclarer le remote github::
 
