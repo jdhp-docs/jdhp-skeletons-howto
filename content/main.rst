@@ -91,7 +91,9 @@ avec des "git merge" qur les fichiers communs
 Solution retenue
 ----------------
 
-Fork (jdhp-skeletons) + helpers/builders (init_skeleton.sh).
+Fork (jdhp-skeletons) + helpers/builders (init_skeleton.sh) en prenant soin
+d'isoler autant que possible les parties communes des parties non communes
+(dans des fichiers `meta.*`) pour faciliter la fusion des branches.
 
 
 Skeleton HOWTO
