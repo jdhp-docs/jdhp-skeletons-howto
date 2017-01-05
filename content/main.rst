@@ -91,8 +91,8 @@ avec des "git merge" qur les fichiers communs
 Skeleton HOWTO
 ==============
 
-Créer un document basé sur un squelette
----------------------------------------
+Créer un document rédigé en anglais à partir d'un squelette
+-----------------------------------------------------------
 
 1. Créer le référentiel sur github (le laisser vide pour le moment)
 
@@ -100,14 +100,33 @@ Créer un document basé sur un squelette
    (utiliser de préférence HTTPS pour que le squelette soit en lecture seule et
    éviter de pousser les mises à jours vers le squelette par erreur)::
 
-    git clone https://github.com/jdhp-skeletons/SKELETON_NAME.git NEW_DOCUMENT_DIRECTORY
+    git clone -b english-version https://github.com/jdhp-skeletons/SKELETON_NAME.git NEW_DOCUMENT_DIRECTORY
+    cd NEW_DOCUMENT_DIRECTORY
+    git remote rename origin skeleton
 
-ou pour clonner une autre branche que la branche par défaut (par exemple `french-version`)::
+3. Déclarer le remote github::
+
+    git remote add origin git@github.com:jdhp-docs/DOCUMENT_NAME.git
+
+4. Pousser la branche par défaut (``english-version``) sur github::
+
+    git push -u origin english-version
+
+Vérifier avec::
+
+    git branch -vv -a
+
+
+Créer un document rédigé en français à partir d'un squelette
+------------------------------------------------------------
+
+1. Créer le référentiel sur github (le laisser vide pour le moment)
+
+2. Cloner le squelette avec la branche par défaut et renommer le remote
+   (utiliser de préférence HTTPS pour que le squelette soit en lecture seule et
+   éviter de pousser les mises à jours vers le squelette par erreur)::
 
     git clone -b french-version https://github.com/jdhp-skeletons/SKELETON_NAME.git NEW_DOCUMENT_DIRECTORY
-
-puis::
-
     cd NEW_DOCUMENT_DIRECTORY
     git remote rename origin skeleton
 
@@ -116,30 +135,17 @@ puis::
 
     git remote add origin git@github.com:jdhp-docs/DOCUMENT_NAME.git
 
-4. Pousser la branche par défaut (``english-version``, ``french-version`` ou
-   ``master`` suivant le squelette) sur github::
-
-    git push -u origin english-version
-
-ou
-
-::
+4. Pousser la branche par défaut (``french-version``) sur github::
 
     git push -u origin french-version
-
-ou
-
-::
-
-    git push -u origin master
 
 Vérifier avec::
 
     git branch -vv -a
 
 
-Créer un document bilingue basé sur un squelette
-------------------------------------------------
+Créer un document bilingue à partir d'un squelette
+--------------------------------------------------
 
 TODO: tester
 
