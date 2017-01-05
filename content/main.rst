@@ -3,7 +3,8 @@
 Réflexion préalable sur les référentiels Git "skeletons"
 ========================================================
 
-Méthodes en concurrence:
+Cette section décrit les différentes méthodes en concurrence avec leurs
+avantages et leurs défauts.
 
 Git submodules (jdhp-docs-shared)
 ---------------------------------
@@ -51,7 +52,7 @@ Problèmes:
 -  les mises à jours...
 -  plus long et difficile à mettre en place (la 1ere solution nécessite
    d'écrire des scripts plus ou moins sophistiqués et la 2e solution
-   nécessite de bien comprendre les outils comme autotools, M4, etc.
+   nécessite de bien comprendre les outils comme autotools, M4, etc.)
 
 Fork (jdhp-skeletons)
 ---------------------
@@ -86,6 +87,11 @@ avec des "git merge" qur les fichiers communs
    -  Nécessite de bien connaitre git branches, git merge, git
       cherrypick, ... (ce qui peux aussi être vu comme un avantage car
       ça permet de gagner en expérience...)
+
+Solution retenue
+----------------
+
+Fork (jdhp-skeletons) + helpers/builders (init_skeleton.sh).
 
 
 Skeleton HOWTO
