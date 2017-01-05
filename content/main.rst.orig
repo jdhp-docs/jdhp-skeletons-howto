@@ -1,5 +1,4 @@
-.. warning:: Veuillez noter que ce document est en cours de rédaction. Dans son état actuel, il n'est pas destiné à être lu par d'autres personnes que ses auteurs.
-
+<<<<<<< HEAD
 Réflexion préalable sur les référentiels Git "skeletons"
 ========================================================
 
@@ -402,3 +401,8 @@ Utiliser le squelette sur un document déjà existant::
     git remote origin ...
     git remote upstream ...
 
+=======
+.. warning:: Veuillez noter que ce document est en cours de rédaction. Dans son état actuel, il n'est pas destiné à être lu par d'autres personnes que ses auteurs.
+
+TODO
+>>>>>>> skeleton/french-version

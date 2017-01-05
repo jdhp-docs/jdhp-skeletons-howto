@@ -21,7 +21,11 @@ body {
     text-align: justify;
 }
 
-/* Main title */
+strong {
+    font-weight: bold;
+}
+
+/* Main title *********************************************/
 
 h1.title {
     text-align: center;
@@ -31,7 +35,7 @@ h2.subtitle {
     text-align: center;
 }
 
-/* Table Of Contents */
+/* Table Of Contents **************************************/
 
 p.topic-title.first {
     margin-bottom: 0.75em;
@@ -42,7 +46,7 @@ div.contents.topic ul {
     list-style:none;
 }
 
-/* Metadata field list (author, date, ...) */
+/* Metadata field list (author, date, ...) ****************/
 
 table.docinfo {
     background-color: #fff;
@@ -77,7 +81,7 @@ table.docinfo tr {
     padding: 0px;
 }
 
-/* Titles */
+/* Titles *************************************************/
 
 h1, p.topic-title.first {
     font-size: 200%;
@@ -97,7 +101,9 @@ h1 a, h2 a, h3 a {
     color: #333;
 }
 
-/* Notes */
+/* Notes **************************************************/
+
+/* http://docutils.sourceforge.net/docs/ref/rst/directives.html#admonitions */
 
 div.note {
     background: #e7f2fa;
@@ -119,14 +125,36 @@ div.note p.last {
     margin-bottom: 0px;
 }
 
-/* Anchors */
+/* Warnings ***********************************************/
+
+div.warning {
+    background: #ffedcc;
+    padding: 12px;
+    line-height: 24px;
+    margin-bottom: 24px;
+}
+
+div.warning p.admonition-title {
+    background: #f0b37e;
+    display: block;
+    font-weight: bold;
+    color: #fff;
+    margin: -12px -12px 12px;
+    padding: 6px 12px;
+}
+
+div.warning p.last {
+    margin-bottom: 0px;
+}
+
+/* Anchors ************************************************/
 
 a {
     color: #4078C0;
     text-decoration: none;
 }
 
-/* Litteral */
+/* Litteral ***********************************************/
 
 pre {
     background-color: #f7f7f7;
@@ -139,7 +167,43 @@ tt {
     padding: 0.2em 0px;
 }
 
-/* Tables */
+/* Code ***************************************************/
+
+/* Line numbers */
+pre.code .ln {
+    color: grey;
+}
+
+pre.code, code {
+    background-color: #eeeeee
+}
+
+pre.code .comment, code .comment {
+    color: #5C6576
+}
+
+pre.code .keyword, code .keyword {
+    color: #3B0D06;
+    font-weight: bold
+}
+
+pre.code .literal.string, code .literal.string {
+    color: #0C5404
+}
+
+pre.code .name.builtin, code .name.builtin {
+    color: #352B84
+}
+
+pre.code .deleted, code .deleted {
+    background-color: #DEB0A1
+}
+
+pre.code .inserted, code .inserted {
+    background-color: #A3D289
+}
+
+/* Tables *************************************************/
 
 table {
     border-collapse: collapse;
@@ -155,8 +219,9 @@ td, th {
     padding: 6px 13px;
 }
 
-/* rst2html messages (errors, warnings, ...) */
+/* rst2html messages (errors, warnings, ...) **************/
 
 div.system-message, div.system-message * {
     background: #ff8080;
 }
+

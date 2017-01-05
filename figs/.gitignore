@@ -1,0 +1,25 @@
+# Keep images #################################################################
+
+!*.pdf
+!*.png
+!*.svg
+!*.gif
+!*.jpeg
+!*.jpg
+
+# Don't keep images made from Python scripts ##################################
+
+*.py.pdf
+*.py.png
+*.py.svg
+*.py.gif
+*.py.jpeg
+*.py.jpg
+
+# Don't keep latex generated files ############################################
+
+*.aux
+*.dvi
+*.log
+*.tex.png
+*.tex.svg
